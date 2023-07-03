@@ -16,10 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+  
     - name: Create env file
         run:|
-          echo "${{ secrets.ENV_FILE }}" > .env
+          touch .env
+          echo API_KEY=${{ secrets.USERNAME }} >> .env
+          cat .env
+
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
