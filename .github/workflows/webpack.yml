@@ -17,11 +17,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
   
-    - name: Create env file
-        run:|
-          touch .env
-          echo API_KEY=${{ secrets.USERNAME }} >> .env
-          cat .env
+    - name: Hello world
+      run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+      env:
+         REACT_APP_MY_SECRET: the_secret
+
 
 
     - name: Use Node.js ${{ matrix.node-version }}
